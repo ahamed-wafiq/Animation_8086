@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>8086 Instruction Animation with Arrows</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+
+<h2>8086 Microinstruction Animation with Arrows</h2>
+
+<div id="inputs">
+  <label>R1: <input id="R1val" value="0A" maxlength="4"></label>
+  <label>R2: <input id="R2val" value="05" maxlength="4"></label>
+</div>
+
+<input id="instruction" placeholder="Enter instruction e.g. ADD R1,R2">
+<button onclick="runInstruction()">Run</button>
+
+<div id="steps"></div>
+
+<!-- Container with blocks -->
+<div id="container">
+  <div class="block" id="PC">PC</div>
+  <div class="block" id="MAR">MAR</div>
+  <div class="block" id="MDR">MDR</div>
+  <div class="block" id="IR">IR</div>
+  <div class="block" id="R1">R1</div>
+  <div class="block" id="R2">R2</div>
+  <div class="block" id="Y">Y</div>
+  <div class="block" id="ALU">ALU</div>
+  <div class="block" id="Z">Z</div>
+
+  <!-- SVG overlay for arrows -->
+  <svg id="arrowLayer"></svg>
+</div>
+
+<div class="data" id="data">00</div>
+
+<script src="script.js"></script>
+</body>
+</html>

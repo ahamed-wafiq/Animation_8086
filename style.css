@@ -1,0 +1,83 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#inputs {
+  margin: 15px;
+  font-size: 16px;
+}
+
+#inputs input {
+  width: 60px;
+  text-align: center;
+  margin: 5px;
+}
+
+#container {
+  display: grid;
+  grid-template-columns: repeat(4, 150px);
+  gap: 40px;
+  margin-top: 30px;
+  position: relative;
+}
+
+.block {
+  width: 120px;
+  height: 60px;
+  background: #e3e3ff;
+  border: 2px solid #555;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  position: relative;
+  z-index: 1;
+}
+
+.data {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: orange;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  opacity: 0;
+  z-index: 2;
+}
+
+#arrowLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.arrow {
+  stroke: red;
+  stroke-width: 3;
+  marker-end: url(#arrowhead);
+  opacity: 0;
+}
+
+marker {
+  fill: red;
+}
+
+#steps {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
