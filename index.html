@@ -1,43 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>8086 Instruction Animation with Arrows</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<meta charset="utf-8" />
+<title>8086 Instruction Animation — ADD/MOV/SUB/MUL</title>
+ <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="page">
+    <h1>8086 Microinstruction Animator — ADD / MOV / SUB / MUL</h1>
 
-<h2>8086 Microinstruction Animation with Arrows</h2>
+    <div class="controls">
+      R1 (hex): <input id="r1" value="00" maxlength="4" />
+      R2 (hex): <input id="r2" value="00" maxlength="4" />
+      Instruction: <input id="instr" value="ADD R1,R2" style="width:180px"/>
+      <button id="runBtn">Run</button>
+      <button id="resetBtn">Reset</button>
+    </div>
 
-<div id="inputs">
-  <label>R1: <input id="R1val" value="0A" maxlength="4"></label>
-  <label>R2: <input id="R2val" value="05" maxlength="4"></label>
-</div>
+    <!-- <div id="status">Ready</div> -->
 
-<input id="instruction" placeholder="Enter instruction e.g. ADD R1,R2">
-<button onclick="runInstruction()">Run</button>
+    <div class="container" id="diagram">
+      <!-- SVG layer for arrows -->
+      
 
-<div id="steps"></div>
+      <svg id="arrowLayer" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arrowhead" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+            <path d="M0,0 L10,6 L0,6 z" fill="#4a3f9f" />
+          </marker>
+        </defs>
+      </svg>  
+       
 
-<!-- Container with blocks -->
-<div id="container">
-  <div class="block" id="PC">PC</div>
-  <div class="block" id="MAR">MAR</div>
-  <div class="block" id="MDR">MDR</div>
-  <div class="block" id="IR">IR</div>
-  <div class="block" id="R1">R1</div>
-  <div class="block" id="R2">R2</div>
-  <div class="block" id="Y">Y</div>
-  <div class="block" id="ALU">ALU</div>
-  <div class="block" id="Z">Z</div>
+      <div id="status">Ready</div>
+      <!-- boxes: show label and current value (value read from inputs on start) -->
+      <div id="PC" class="box"><div class="label">PC</div><div class="val" id="vPC"></div></div>
+      <div id="MAR" class="box"><div class="label">MAR</div><div class="val" id="vMAR"></div></div>
+      <div id="MDR" class="box"><div class="label">MDR</div><div class="val" id="vMDR"></div></div>
+      <div id="IR" class="box"><div class="label">IR</div><div class="val" id="vIR"></div></div>
 
-  <!-- SVG overlay for arrows -->
-  <svg id="arrowLayer"></svg>
-</div>
+      <div id="R1" class="box"><div class="label">R1</div><div class="val" id="vR1"></div></div>
+      <div id="R2" class="box"><div class="label">R2</div><div class="val" id="vR2"></div></div>
 
-<div class="data" id="data">00</div>
+      <div id="Y" class="box"><div class="label">Y</div><div class="val" id="vY"></div></div>
+      <div id="ALU" class="box"><div class="label">ALU</div><div class="val" id="vALU"></div></div>
+      <div id="Z" class="box"><div class="label">Z</div><div class="val" id="vZ"></div></div>
+    </div>
 
-<script src="script.js"></script>
+    
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
